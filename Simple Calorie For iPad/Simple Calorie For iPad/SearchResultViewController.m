@@ -6,13 +6,13 @@
 //  Copyright © 2016年 Yaxin Yuan. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SearchResultViewController.h"
 
-@interface ViewController ()
+@interface SearchResultViewController ()
 
 @end
 
-@implementation ViewController
+@implementation SearchResultViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
