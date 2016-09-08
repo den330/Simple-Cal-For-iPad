@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchResultViewController : UIViewController
+@interface SearchResultViewController : UIViewController <UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
