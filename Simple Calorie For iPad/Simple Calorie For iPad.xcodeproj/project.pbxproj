@@ -13,9 +13,13 @@
 		903F7CBB1D8195FE005A077C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 903F7CB91D8195FE005A077C /* Main.storyboard */; };
 		903F7CBD1D8195FE005A077C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 903F7CBC1D8195FE005A077C /* Assets.xcassets */; };
 		903F7CC01D8195FE005A077C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 903F7CBE1D8195FE005A077C /* LaunchScreen.storyboard */; };
+		903F7CCC1D85E294005A077C /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 903F7CCB1D85E294005A077C /* Network.m */; };
+		EBD9DEA4F5BA5FE78C3E1330 /* libPods-Simple Calorie For iPad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B33FF9E0F30D522D5C2731C /* libPods-Simple Calorie For iPad.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6BB656D4019D5C91AA723F07 /* Pods-Simple Calorie For iPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Calorie For iPad.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Calorie For iPad/Pods-Simple Calorie For iPad.release.xcconfig"; sourceTree = "<group>"; };
+		8B33FF9E0F30D522D5C2731C /* libPods-Simple Calorie For iPad.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Simple Calorie For iPad.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		903F7CAD1D8195FE005A077C /* Simple Calorie For iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Calorie For iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		903F7CB11D8195FE005A077C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		903F7CB31D8195FE005A077C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +30,9 @@
 		903F7CBC1D8195FE005A077C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		903F7CBF1D8195FE005A077C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		903F7CC11D8195FE005A077C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		903F7CCA1D85E294005A077C /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		903F7CCB1D85E294005A077C /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
+		C1B6C24BBDECD0007CF2C35A /* Pods-Simple Calorie For iPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Calorie For iPad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Calorie For iPad/Pods-Simple Calorie For iPad.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD9DEA4F5BA5FE78C3E1330 /* libPods-Simple Calorie For iPad.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +52,8 @@
 			children = (
 				903F7CAF1D8195FE005A077C /* Simple Calorie For iPad */,
 				903F7CAE1D8195FE005A077C /* Products */,
+				99F551D7DFA88E23A3890823 /* Pods */,
+				B4E9B903CFD4088ADF29554F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +68,8 @@
 		903F7CAF1D8195FE005A077C /* Simple Calorie For iPad */ = {
 			isa = PBXGroup;
 			children = (
+				903F7CCA1D85E294005A077C /* Network.h */,
+				903F7CCB1D85E294005A077C /* Network.m */,
 				903F7CB31D8195FE005A077C /* AppDelegate.h */,
 				903F7CB41D8195FE005A077C /* AppDelegate.m */,
 				903F7CB61D8195FE005A077C /* SearchResultViewController.h */,
@@ -79,6 +91,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		99F551D7DFA88E23A3890823 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C1B6C24BBDECD0007CF2C35A /* Pods-Simple Calorie For iPad.debug.xcconfig */,
+				6BB656D4019D5C91AA723F07 /* Pods-Simple Calorie For iPad.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B4E9B903CFD4088ADF29554F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B33FF9E0F30D522D5C2731C /* libPods-Simple Calorie For iPad.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +115,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 903F7CC41D8195FE005A077C /* Build configuration list for PBXNativeTarget "Simple Calorie For iPad" */;
 			buildPhases = (
+				665C84D8CF644214C7632C4A /* [CP] Check Pods Manifest.lock */,
 				903F7CA91D8195FE005A077C /* Sources */,
 				903F7CAA1D8195FE005A077C /* Frameworks */,
 				903F7CAB1D8195FE005A077C /* Resources */,
+				8EEAFDB020BC6F571002B134 /* [CP] Embed Pods Frameworks */,
+				500E414BC4302F5001360285 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -145,6 +177,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		500E414BC4302F5001360285 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Simple Calorie For iPad/Pods-Simple Calorie For iPad-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		665C84D8CF644214C7632C4A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8EEAFDB020BC6F571002B134 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Simple Calorie For iPad/Pods-Simple Calorie For iPad-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		903F7CA91D8195FE005A077C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -152,6 +232,7 @@
 			files = (
 				903F7CB81D8195FE005A077C /* SearchResultViewController.m in Sources */,
 				903F7CB51D8195FE005A077C /* AppDelegate.m in Sources */,
+				903F7CCC1D85E294005A077C /* Network.m in Sources */,
 				903F7CB21D8195FE005A077C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +345,7 @@
 		};
 		903F7CC51D8195FE005A077C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1B6C24BBDECD0007CF2C35A /* Pods-Simple Calorie For iPad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -277,6 +359,7 @@
 		};
 		903F7CC61D8195FE005A077C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BB656D4019D5C91AA723F07 /* Pods-Simple Calorie For iPad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -307,6 +390,7 @@
 				903F7CC61D8195FE005A077C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
