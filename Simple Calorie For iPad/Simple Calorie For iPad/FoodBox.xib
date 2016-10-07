@@ -7,15 +7,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NtW-n3-Kxj">
-            <rect key="frame" x="0.0" y="0.0" width="367" height="151"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FoodBox" id="NtW-n3-Kxj">
+            <rect key="frame" x="0.0" y="0.0" width="374" height="150"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="367" height="151"/>
+                <rect key="frame" x="0.0" y="0.0" width="374" height="150"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steak,handsome" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gV-Qt-IUB">
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="385 Cal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msS-Fv-PIM">
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keg Steak House" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28b-WS-BDd">
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
             </view>
-            <size key="customSize" width="367" height="151"/>
-            <point key="canvasLocation" x="-227" y="-43"/>
+            <color key="backgroundColor" red="0.96887014240000002" green="0.99798708300000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="28b-WS-BDd" firstAttribute="leading" secondItem="NtW-n3-Kxj" secondAttribute="leading" constant="8" id="3Et-g6-ocz"/>
+                <constraint firstAttribute="trailing" secondItem="5gV-Qt-IUB" secondAttribute="trailing" constant="8" id="IaZ-sD-eyh"/>
+                <constraint firstItem="5gV-Qt-IUB" firstAttribute="top" secondItem="NtW-n3-Kxj" secondAttribute="top" constant="8" id="aJc-ML-gTX"/>
+                <constraint firstAttribute="trailing" secondItem="msS-Fv-PIM" secondAttribute="trailing" constant="8" id="eIw-wi-fla"/>
+                <constraint firstItem="28b-WS-BDd" firstAttribute="top" secondItem="5gV-Qt-IUB" secondAttribute="bottom" constant="32" id="jCu-da-7rx"/>
+                <constraint firstAttribute="bottom" secondItem="msS-Fv-PIM" secondAttribute="bottom" constant="8" id="suB-Xn-tru"/>
+                <constraint firstItem="5gV-Qt-IUB" firstAttribute="leading" secondItem="NtW-n3-Kxj" secondAttribute="leading" constant="8" id="yjZ-lw-wGU"/>
+                <constraint firstAttribute="trailing" secondItem="28b-WS-BDd" secondAttribute="trailing" constant="8" id="ze5-zI-b8F"/>
+            </constraints>
+            <size key="customSize" width="421" height="205"/>
+            <point key="canvasLocation" x="-59" y="62"/>
         </collectionViewCell>
     </objects>
 </document>

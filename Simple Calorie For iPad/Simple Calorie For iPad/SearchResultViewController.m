@@ -9,6 +9,7 @@
 #import "SearchResultViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import "Food.h"
+#import <UIKit/UIKit.h>
 
 @interface SearchResultViewController ()
 
@@ -23,6 +24,8 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.array = [[NSMutableArray alloc] init];
+    UINib *nib = [UINib nibWithNibName:@"FoodBox" bundle:nil];
+    [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"FoodBox"];
     [self grabInfo];
 }
 
@@ -83,8 +86,23 @@
     return 100;
 }
 
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(320,96);
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    return 10;
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return 10;
+}
+
+
+
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cellReuse = [self.collectionView dequeueReusableCellWithReuseIdentifier: @"cellReuse" forIndexPath:indexPath];
+    UICollectionViewCell *cellReuse = [self.collectionView dequeueReusableCellWithReuseIdentifier: @"FoodBox" forIndexPath:indexPath];
     return cellReuse;
 }
 
