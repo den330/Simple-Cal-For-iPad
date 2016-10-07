@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9004D4C31D8F2B5100B3BF25 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = 9004D4C21D8F2B5100B3BF25 /* Food.m */; };
 		903F7CB21D8195FE005A077C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 903F7CB11D8195FE005A077C /* main.m */; };
 		903F7CB51D8195FE005A077C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 903F7CB41D8195FE005A077C /* AppDelegate.m */; };
 		903F7CB81D8195FE005A077C /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 903F7CB71D8195FE005A077C /* SearchResultViewController.m */; };
@@ -14,12 +15,15 @@
 		903F7CBD1D8195FE005A077C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 903F7CBC1D8195FE005A077C /* Assets.xcassets */; };
 		903F7CC01D8195FE005A077C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 903F7CBE1D8195FE005A077C /* LaunchScreen.storyboard */; };
 		903F7CCC1D85E294005A077C /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 903F7CCB1D85E294005A077C /* Network.m */; };
+		90BC47361DA75F1E005C6365 /* FoodBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90BC47351DA75F1E005C6365 /* FoodBox.xib */; };
 		EBD9DEA4F5BA5FE78C3E1330 /* libPods-Simple Calorie For iPad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B33FF9E0F30D522D5C2731C /* libPods-Simple Calorie For iPad.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6BB656D4019D5C91AA723F07 /* Pods-Simple Calorie For iPad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Calorie For iPad.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Calorie For iPad/Pods-Simple Calorie For iPad.release.xcconfig"; sourceTree = "<group>"; };
 		8B33FF9E0F30D522D5C2731C /* libPods-Simple Calorie For iPad.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Simple Calorie For iPad.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9004D4C11D8F2B5100B3BF25 /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Food.h; sourceTree = "<group>"; };
+		9004D4C21D8F2B5100B3BF25 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Food.m; sourceTree = "<group>"; };
 		903F7CAD1D8195FE005A077C /* Simple Calorie For iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Calorie For iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		903F7CB11D8195FE005A077C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		903F7CB31D8195FE005A077C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -32,6 +36,7 @@
 		903F7CC11D8195FE005A077C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		903F7CCA1D85E294005A077C /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
 		903F7CCB1D85E294005A077C /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
+		90BC47351DA75F1E005C6365 /* FoodBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoodBox.xib; sourceTree = "<group>"; };
 		C1B6C24BBDECD0007CF2C35A /* Pods-Simple Calorie For iPad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Calorie For iPad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Calorie For iPad/Pods-Simple Calorie For iPad.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +79,9 @@
 				903F7CB41D8195FE005A077C /* AppDelegate.m */,
 				903F7CB61D8195FE005A077C /* SearchResultViewController.h */,
 				903F7CB71D8195FE005A077C /* SearchResultViewController.m */,
+				90BC47351DA75F1E005C6365 /* FoodBox.xib */,
+				9004D4C11D8F2B5100B3BF25 /* Food.h */,
+				9004D4C21D8F2B5100B3BF25 /* Food.m */,
 				903F7CB91D8195FE005A077C /* Main.storyboard */,
 				903F7CBC1D8195FE005A077C /* Assets.xcassets */,
 				903F7CBE1D8195FE005A077C /* LaunchScreen.storyboard */,
@@ -170,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				903F7CC01D8195FE005A077C /* LaunchScreen.storyboard in Resources */,
+				90BC47361DA75F1E005C6365 /* FoodBox.xib in Resources */,
 				903F7CBD1D8195FE005A077C /* Assets.xcassets in Resources */,
 				903F7CBB1D8195FE005A077C /* Main.storyboard in Resources */,
 			);
@@ -230,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9004D4C31D8F2B5100B3BF25 /* Food.m in Sources */,
 				903F7CB81D8195FE005A077C /* SearchResultViewController.m in Sources */,
 				903F7CB51D8195FE005A077C /* AppDelegate.m in Sources */,
 				903F7CCC1D85E294005A077C /* Network.m in Sources */,
