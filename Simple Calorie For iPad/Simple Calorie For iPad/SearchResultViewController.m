@@ -10,6 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "Food.h"
 #import <UIKit/UIKit.h>
+#import "Network.h"
 
 @interface SearchResultViewController ()
 
@@ -19,58 +20,13 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    self.net = [[Network alloc] init];
     self.collectionView.backgroundColor = [UIColor yellowColor];
     self.searchBar.delegate = self;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     UINib *nib = [UINib nibWithNibName:@"FoodBox" bundle:nil];
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"FoodBox"];
-    [self grabInfo];
-}
-
--(void)grabInfo{
-    NSDictionary *dict = [self getDict];
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [manager POST:@"https://api.nutritionix.com/v1_1/search/" parameters:dict progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSDictionary *dic = (NSDictionary *) responseObject;
-        NSArray *hits = dic[@"hits"];
-        self.array = [[NSMutableArray alloc] init];
-        NSLog(@"%@", @"For");
-        for (NSDictionary *food in hits){
-            NSDictionary *field = food[@"fields"];
-            Food *fo = [[Food alloc] init];
-            fo.brandName = field[@"brand_name"];
-            fo.calorie = field[@"nf_calories"];
-            fo.foodName = field[@"item_name"];
-            fo.idNum = field[@"item_id"];
-            NSString *qty = field[@"nf_serving_size_qty"];
-            NSString *unit = field[@"nf_serving_size_unit"];
-            NSString *str = [[NSString alloc] initWithFormat:@"%@ %@", qty, unit];
-            if([str containsString:@"<null>"]){
-                fo.unit = @"Unit Not Available";
-            }else{
-                fo.unit = str;
-            }
-            [self.array addObject:fo];
-        }
-        dispatch_async(dispatch_get_main_queue(), ^(void){
-            [self.collectionView reloadData];
-        });
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"Fail");
-    }];
-    
-}
-
--(NSDictionary *)getDict{
-    NSArray *array = @[@"nf_calories",@"item_name",@"brand_name",@"nf_serving_size_unit",@"nf_serving_size_qty",@"item_id"];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary: @{@"appId" : @"8b36dac9", @"appKey": @"c79b530ed299ec9f53d64be135311b09", @"query": @"lamb", @"offset": @0, @"limit": @50}];
-    dic[@"fields"] = array;
-    return dic;
 }
 
 -(UIBarPosition)positionForBar:(id<UIBarPositioning>)bar{
@@ -82,7 +38,7 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [self.array count];
+    return [self.net.foodArray count];
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -97,15 +53,17 @@
     return 10;
 }
 
-
-
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    NSString *str = searchBar.text;
+    [self.net grabInfo: str completionHandler:^{[self.collectionView reloadData];}];
+}
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cellReuse = [self.collectionView dequeueReusableCellWithReuseIdentifier: @"FoodBox" forIndexPath:indexPath];
     UILabel *name = [cellReuse viewWithTag:1];
     UILabel *calories = [cellReuse viewWithTag:3];
     UILabel *brandName = [cellReuse viewWithTag:2];
-    Food *fo = [self.array objectAtIndex:indexPath.row];
+    Food *fo = [self.net.foodArray objectAtIndex:indexPath.row];
     name.text = fo.foodName;
     brandName.text = fo.brandName;
     calories.text = [NSString stringWithFormat:@"%@ Cal", fo.calorie];

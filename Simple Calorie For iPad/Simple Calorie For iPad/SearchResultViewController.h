@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
+#import "Network.h"
 
 
 @interface SearchResultViewController : UIViewController <UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -18,6 +19,7 @@
 
 @property (strong, nonatomic) NSMutableArray  *array;
 
+@property (strong, nonatomic) Network *net;
 
 @end
 

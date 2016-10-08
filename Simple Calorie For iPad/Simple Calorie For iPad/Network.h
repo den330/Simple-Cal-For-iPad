@@ -10,4 +10,8 @@
 
 @interface Network : NSObject
 
+@property NSMutableArray *foodArray;
+
+-(void)grabInfo: (NSString *) str completionHandler: (void (^)(void)) block;
+
 @end
