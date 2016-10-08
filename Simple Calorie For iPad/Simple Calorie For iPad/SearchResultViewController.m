@@ -23,7 +23,6 @@
     self.searchBar.delegate = self;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    self.array = [[NSMutableArray alloc] init];
     UINib *nib = [UINib nibWithNibName:@"FoodBox" bundle:nil];
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"FoodBox"];
     [self grabInfo];
@@ -38,10 +37,12 @@
         
         NSDictionary *dic = (NSDictionary *) responseObject;
         NSArray *hits = dic[@"hits"];
+        self.array = [[NSMutableArray alloc] init];
+        NSLog(@"%@", @"For");
         for (NSDictionary *food in hits){
             NSDictionary *field = food[@"fields"];
             Food *fo = [[Food alloc] init];
-            fo.brandName = field[@"brand-name"];
+            fo.brandName = field[@"brand_name"];
             fo.calorie = field[@"nf_calories"];
             fo.foodName = field[@"item_name"];
             fo.idNum = field[@"item_id"];
@@ -55,11 +56,9 @@
             }
             [self.array addObject:fo];
         }
-        
-        
-        
-        
-
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self.collectionView reloadData];
+        });
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"Fail");
@@ -69,7 +68,7 @@
 
 -(NSDictionary *)getDict{
     NSArray *array = @[@"nf_calories",@"item_name",@"brand_name",@"nf_serving_size_unit",@"nf_serving_size_qty",@"item_id"];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary: @{@"appId" : @"8b36dac9", @"appKey": @"c79b530ed299ec9f53d64be135311b09", @"query": @"Ham", @"offset": @0, @"limit": @50}];
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary: @{@"appId" : @"8b36dac9", @"appKey": @"c79b530ed299ec9f53d64be135311b09", @"query": @"lamb", @"offset": @0, @"limit": @50}];
     dic[@"fields"] = array;
     return dic;
 }
@@ -79,15 +78,15 @@
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
+   return 1;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 100;
+    return [self.array count];
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(320,96);
+    return CGSizeMake(320,120);
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
@@ -103,6 +102,13 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     UICollectionViewCell *cellReuse = [self.collectionView dequeueReusableCellWithReuseIdentifier: @"FoodBox" forIndexPath:indexPath];
+    UILabel *name = [cellReuse viewWithTag:1];
+    UILabel *calories = [cellReuse viewWithTag:3];
+    UILabel *brandName = [cellReuse viewWithTag:2];
+    Food *fo = [self.array objectAtIndex:indexPath.row];
+    name.text = fo.foodName;
+    brandName.text = fo.brandName;
+    calories.text = [NSString stringWithFormat:@"%@ Cal", fo.calorie];
     return cellReuse;
 }
 

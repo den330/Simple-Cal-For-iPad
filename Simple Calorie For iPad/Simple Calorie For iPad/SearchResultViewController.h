@@ -16,7 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
-@property (strong, nonatomic) NSMutableArray *array;
+@property (strong, nonatomic) NSMutableArray  *array;
 
 
 @end
