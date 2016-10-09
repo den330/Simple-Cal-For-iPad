@@ -27,6 +27,7 @@
     self.collectionView.dataSource = self;
     UINib *nib = [UINib nibWithNibName:@"FoodBox" bundle:nil];
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"FoodBox"];
+    self.collectionView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0);
 }
 
 -(UIBarPosition)positionForBar:(id<UIBarPositioning>)bar{
@@ -54,6 +55,7 @@
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
     NSString *str = searchBar.text;
     [self.net grabInfo: str completionHandler:^{[self.collectionView reloadData];}];
 }

@@ -25,7 +25,6 @@
         NSDictionary *dic = (NSDictionary *) responseObject;
         NSArray *hits = dic[@"hits"];
         self.foodArray = [[NSMutableArray alloc] init];
-        NSLog(@"%@", @"For");
         for (NSDictionary *food in hits){
             NSDictionary *field = food[@"fields"];
             Food *fo = [[Food alloc] init];
