@@ -68,7 +68,8 @@
     Food *fo = [self.net.foodArray objectAtIndex:indexPath.row];
     name.text = fo.foodName;
     brandName.text = fo.brandName;
-    calories.text = [NSString stringWithFormat:@"%@ Cal", fo.calorie];
+    double cal = [fo.calorie doubleValue];
+    calories.text = [NSString stringWithFormat:@"%.02f Cal", cal];
     return cellReuse;
 }
 

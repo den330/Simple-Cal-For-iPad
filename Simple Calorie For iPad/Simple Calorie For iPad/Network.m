@@ -15,6 +15,11 @@
 
 @implementation Network
 
+-(instancetype)init{
+    self.oddTimes = true;
+    return self;
+}
+
 -(void)grabInfo: (NSString *) str completionHandler: (void (^)(void)) block{
     NSDictionary *dict = [self getDict: str];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
@@ -55,6 +60,13 @@
     NSArray *array = @[@"nf_calories",@"item_name",@"brand_name",@"nf_serving_size_unit",@"nf_serving_size_qty",@"item_id"];
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary: @{@"appId" : @"8b36dac9", @"appKey": @"c79b530ed299ec9f53d64be135311b09", @"query": str, @"offset": @0, @"limit": @50}];
     dic[@"fields"] = array;
+    if (self.oddTimes == true){
+        self.oddTimes = false;
+    }else{
+        dic[@"appId"] = @"0a714183";
+        dic[@"appKey"] = @"67d0f5774ec4e02095a3cc1b36a5ccc8";
+        self.oddTimes = true;
+    }
     return dic;
 }
 

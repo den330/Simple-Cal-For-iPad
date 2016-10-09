@@ -12,6 +12,8 @@
 
 @property NSMutableArray *foodArray;
 
+@property bool oddTimes;
+
 -(void)grabInfo: (NSString *) str completionHandler: (void (^)(void)) block;
 
 @end
