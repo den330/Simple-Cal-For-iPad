@@ -42,21 +42,33 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4N0-X3-jp1" customClass="GADBannerView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="cAc-pR-fD1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8go-JD-MLJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="18b-f0-e8k"/>
                             <constraint firstItem="XQQ-cF-gz6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3Mv-9z-e0c"/>
                             <constraint firstItem="DLO-HA-HNU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5K2-Mo-gjh"/>
+                            <constraint firstAttribute="bottom" secondItem="4N0-X3-jp1" secondAttribute="bottom" id="7Ju-E8-kzG"/>
                             <constraint firstItem="XQQ-cF-gz6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="BHb-aB-xLt"/>
                             <constraint firstAttribute="trailing" secondItem="8go-JD-MLJ" secondAttribute="trailing" id="C5G-qK-BEG"/>
                             <constraint firstItem="Kq8-k7-zbW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Elo-M3-ArK"/>
+                            <constraint firstAttribute="trailing" secondItem="Kq8-k7-zbW" secondAttribute="trailing" id="JbO-oN-bmg"/>
                             <constraint firstAttribute="trailing" secondItem="XQQ-cF-gz6" secondAttribute="trailing" id="PeG-YO-jTH"/>
+                            <constraint firstAttribute="trailing" secondItem="4N0-X3-jp1" secondAttribute="trailing" id="Wrq-I8-XeO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kq8-k7-zbW" secondAttribute="bottom" id="Y8q-3W-zWs"/>
                             <constraint firstItem="8go-JD-MLJ" firstAttribute="top" secondItem="DLO-HA-HNU" secondAttribute="bottom" id="Zf4-i7-cr7"/>
+                            <constraint firstItem="4N0-X3-jp1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="azA-Jy-Lu0"/>
+                            <constraint firstAttribute="bottom" secondItem="Kq8-k7-zbW" secondAttribute="bottom" id="cjf-dl-cDd"/>
                             <constraint firstItem="DLO-HA-HNU" firstAttribute="top" secondItem="XQQ-cF-gz6" secondAttribute="bottom" id="js9-IP-nRg"/>
                             <constraint firstAttribute="trailing" secondItem="DLO-HA-HNU" secondAttribute="trailing" id="mbv-jd-6Ki"/>
                             <constraint firstItem="Kq8-k7-zbW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mxC-5Y-Ae7"/>
+                            <constraint firstItem="Kq8-k7-zbW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="r5Y-ga-L7d"/>
                             <constraint firstAttribute="trailing" secondItem="Kq8-k7-zbW" secondAttribute="trailing" id="y7M-eJ-OiQ"/>
                         </constraints>
                     </view>
