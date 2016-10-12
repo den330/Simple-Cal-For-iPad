@@ -10,18 +10,22 @@
 #import <AFNetworking/AFNetworking.h>
 #import "Food.h"
 
-
-
-
 @implementation Network
 
 -(instancetype)init{
     self.oddTimes = true;
+    self.idKey1 = [[NSDictionary alloc] init];
+    self.idKey1 = @{@"id": @"0a714183", @"key": @"67d0f5774ec4e02095a3cc1b36a5ccc8"};
+    self.idKey2 = [[NSDictionary alloc] init];
+    self.idKey2 = @{@"id": @"8b36dac9", @"key": @"c79b530ed299ec9f53d64be135311b09"};
+    self.state = notYetBegun;
     return self;
 }
 
--(void)grabInfo: (NSString *) str completionHandler: (void (^)(void)) block{
-    NSDictionary *dict = [self getDict: str];
+-(void)grabInfo: (NSString *) str filterText: (NSString *) filterStr completionHandler: (void (^)(void)) block{
+    self.state = Searching;
+    block();
+    NSDictionary *dict = [self getDict:str filterText:filterStr];
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -29,6 +33,11 @@
         
         NSDictionary *dic = (NSDictionary *) responseObject;
         NSArray *hits = dic[@"hits"];
+        if((int)[hits count] == 0){
+            self.state = NoResult;
+            block();
+            return;
+        }
         self.foodArray = [[NSMutableArray alloc] init];
         for (NSDictionary *food in hits){
             NSDictionary *field = food[@"fields"];
@@ -47,27 +56,40 @@
             }
             [self.foodArray addObject:fo];
         }
+        self.state = searchSuccess;
         dispatch_async(dispatch_get_main_queue(), ^(void){
             block();
         });
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        self.state = searchFail;
         NSLog(@"Fail");
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            block();
+        });
     }];
 }
 
--(NSDictionary *)getDict: (NSString *) str{
+-(NSDictionary *)getDict: (NSString *) str filterText: (NSString *) filterStr{
+    [self pickID];
     NSArray *array = @[@"nf_calories",@"item_name",@"brand_name",@"nf_serving_size_unit",@"nf_serving_size_qty",@"item_id"];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary: @{@"appId" : @"8b36dac9", @"appKey": @"c79b530ed299ec9f53d64be135311b09", @"query": str, @"offset": @0, @"limit": @50}];
-    dic[@"fields"] = array;
-    if (self.oddTimes == true){
-        self.oddTimes = false;
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary: @{@"appId" : self.appID, @"appKey": self.appKey, @"offset": @0, @"limit": @50}];
+    if ([filterStr  isEqual: @""]){
+        dic[@"query"] = str;
     }else{
-        dic[@"appId"] = @"0a714183";
-        dic[@"appKey"] = @"67d0f5774ec4e02095a3cc1b36a5ccc8";
-        self.oddTimes = true;
+        dic[@"queries"] = @{@"item_name":str, @"brand_name": filterStr};
     }
+    dic[@"fields"] = array;
     return dic;
+}
+
+-(void) pickID{
+    if(self.oddTimes){
+        self.appID = self.idKey1[@"id"];
+        self.appKey = self.idKey1[@"key"];
+    }else{
+        self.appID = self.idKey2[@"id"];
+        self.appKey = self.idKey2[@"key"];
+    }
 }
 
 @end

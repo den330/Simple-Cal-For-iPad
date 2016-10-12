@@ -14,6 +14,24 @@
 
 @property bool oddTimes;
 
--(void)grabInfo: (NSString *) str completionHandler: (void (^)(void)) block;
+@property NSString *appID;
+
+@property NSString *appKey;
+
+@property NSDictionary *idKey1;
+
+@property NSDictionary *idKey2;
+
+typedef enum{
+    notYetBegun,
+    Searching,
+    NoResult,
+    searchFail,
+    searchSuccess
+}searchState;
+
+@property (nonatomic) searchState state;
+
+-(void)grabInfo: (NSString *) str filterText: (NSString *) filterStr completionHandler: (void (^)(void)) block;
 
 @end

@@ -30,30 +30,40 @@
                             <searchBar contentMode="redraw" placeholder="Type In Food Or Drink" translatesAutoresizingMaskIntoConstraints="NO" id="XQQ-cF-gz6">
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Optional Filter: Type In Brand or Restaurant Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLO-HA-HNU">
+                                <color key="backgroundColor" red="0.96887014240000002" green="0.99798708300000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by Nutritionix API" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8go-JD-MLJ">
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="XQQ-cF-gz6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="1CD-Az-Rhh"/>
-                            <constraint firstAttribute="trailing" secondItem="XQQ-cF-gz6" secondAttribute="trailing" id="8kG-0m-4Li"/>
+                            <constraint firstItem="8go-JD-MLJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="18b-f0-e8k"/>
+                            <constraint firstItem="XQQ-cF-gz6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3Mv-9z-e0c"/>
+                            <constraint firstItem="DLO-HA-HNU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5K2-Mo-gjh"/>
+                            <constraint firstItem="XQQ-cF-gz6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="BHb-aB-xLt"/>
+                            <constraint firstAttribute="trailing" secondItem="8go-JD-MLJ" secondAttribute="trailing" id="C5G-qK-BEG"/>
                             <constraint firstItem="Kq8-k7-zbW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Elo-M3-ArK"/>
-                            <constraint firstItem="8go-JD-MLJ" firstAttribute="top" secondItem="XQQ-cF-gz6" secondAttribute="bottom" id="JB1-fY-0WX"/>
-                            <constraint firstItem="8go-JD-MLJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MMz-hP-QQ6"/>
+                            <constraint firstAttribute="trailing" secondItem="XQQ-cF-gz6" secondAttribute="trailing" id="PeG-YO-jTH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kq8-k7-zbW" secondAttribute="bottom" id="Y8q-3W-zWs"/>
-                            <constraint firstItem="XQQ-cF-gz6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eXU-cT-u4M"/>
+                            <constraint firstItem="8go-JD-MLJ" firstAttribute="top" secondItem="DLO-HA-HNU" secondAttribute="bottom" id="Zf4-i7-cr7"/>
+                            <constraint firstItem="DLO-HA-HNU" firstAttribute="top" secondItem="XQQ-cF-gz6" secondAttribute="bottom" id="js9-IP-nRg"/>
+                            <constraint firstAttribute="trailing" secondItem="DLO-HA-HNU" secondAttribute="trailing" id="mbv-jd-6Ki"/>
                             <constraint firstItem="Kq8-k7-zbW" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mxC-5Y-Ae7"/>
-                            <constraint firstAttribute="trailing" secondItem="8go-JD-MLJ" secondAttribute="trailing" id="pbH-C2-96H"/>
                             <constraint firstAttribute="trailing" secondItem="Kq8-k7-zbW" secondAttribute="trailing" id="y7M-eJ-OiQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yIx-10-DR5"/>
                     <connections>
                         <outlet property="collectionView" destination="Kq8-k7-zbW" id="z1s-tK-KVd"/>
+                        <outlet property="optionalField" destination="DLO-HA-HNU" id="7iD-Qo-C6C"/>
                         <outlet property="searchBar" destination="XQQ-cF-gz6" id="vH6-hB-8y5"/>
                     </connections>
                 </viewController>
