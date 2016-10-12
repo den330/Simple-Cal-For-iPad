@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
 #import "Network.h"
+@import GoogleMobileAds;
 
 
 @interface SearchResultViewController : UIViewController <UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UITextFieldDelegate>
@@ -16,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@property (strong, nonatomic) IBOutlet GADBannerView *bannerView;
 
 @property (weak, nonatomic) IBOutlet UITextField *optionalField;
 

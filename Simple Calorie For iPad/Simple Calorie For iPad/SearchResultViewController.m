@@ -36,7 +36,17 @@
     [self.collectionView registerNib:loadingNib forCellWithReuseIdentifier:@"LoadingBox"];
     [self.collectionView registerNib:failNib forCellWithReuseIdentifier:@"FailBox"];
     [self.collectionView registerNib:initialNib forCellWithReuseIdentifier:@"InitialBox"];
-    self.collectionView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0);
+    self.collectionView.contentInset = UIEdgeInsetsMake(30, 0, 100, 0);
+    [self adBannerSet];
+}
+
+-(void)adBannerSet{
+    self.bannerView.adSize = kGADAdSizeSmartBannerPortrait;
+    self.bannerView.adUnitID = @"ca-app-pub-9661807512900472/4585702343";
+    self.bannerView.rootViewController = self;
+    GADRequest *request = [GADRequest request];
+    request.testDevices = @[ kGADSimulatorID];
+    [self.bannerView loadRequest:request];
 }
 
 -(UIBarPosition)positionForBar:(id<UIBarPositioning>)bar{
