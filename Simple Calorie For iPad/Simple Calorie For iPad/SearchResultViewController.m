@@ -45,7 +45,6 @@
     self.bannerView.adUnitID = @"ca-app-pub-9661807512900472/4585702343";
     self.bannerView.rootViewController = self;
     GADRequest *request = [GADRequest request];
-    request.testDevices = @[ kGADSimulatorID];
     [self.bannerView loadRequest:request];
 }
 
@@ -135,10 +134,10 @@
     return cellReuse;
 }
 
--(bool)textFieldShouldReturn:(UITextField *)textField{
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self searchBarSearchButtonClicked:self.searchBar];
     [self.optionalField resignFirstResponder];
-    return false;
+    return NO;
 }
 
 
